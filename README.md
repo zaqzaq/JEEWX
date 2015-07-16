@@ -37,7 +37,7 @@ jeewx的目的是最大化的简化微信开发的流程，使用开发者能把
 *   12, 微信支持多用户多公众号
 *  13，微信大转盘
 *  14，微信刮刮乐
-*  15，微信CMS
+*  15，微信CMS :http://localhost/jeewx/cmsController.do?goPage&page=index&accountid=8a8a8dc84e6c302a014e6c672240000a
 *  16，自定义接口回复
 *  17，翻译
 *  18，天气
