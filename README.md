@@ -41,7 +41,7 @@ jeewx的目的是最大化的简化微信开发的流程，使用开发者能把
 *  16，自定义接口回复
 *  17，翻译
 *  18，天气
-    更多功能参考官方：www.jeecg.org
+
 
 
 最低系统需求
@@ -61,13 +61,6 @@ jeewx的目的是最大化的简化微信开发的流程，使用开发者能把
         URL:   http://*地址*/jeewx/wechatController.do?wechat<br>
         Token:  jeecg<br>
 * 	5.云服务平台建议，可以采用MoPaaS
-
-联系方式
------------------------------------
-* 	QQ 交流群 : 287090836
-* 	官网:      http://www.jeewx.com
-* 	官方邮件：  scott@jeecg.org
-* 	联系QQ：418799587(承接项目)
 
 ![github](http://img.blog.csdn.net/20140706133652718?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhhbmdkYWlzY290dA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center "jeewx")
 ![github](http://img.blog.csdn.net/20140706133543390?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhhbmdkYWlzY290dA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center "jeewx")
