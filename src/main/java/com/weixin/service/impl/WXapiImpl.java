@@ -32,10 +32,9 @@ public class WXapiImpl extends UnicastRemoteObject  implements WXapi{
 		
 		JSONObject jsonObj = JSONObject.fromObject(customMessage);
 		
-		((CustomerMessageService)ApplicationContextUtil.getContext().getBean("customerMessageService")).
+		return ((CustomerMessageService)ApplicationContextUtil.getContext().getBean("customerMessageService")).
 			sendMessage(jsonObj.toString(),WXUtil.get("ljtWX.account"));
 		
-		return false;
 	}
 
 	@Override

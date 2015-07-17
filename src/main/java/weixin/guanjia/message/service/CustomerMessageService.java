@@ -35,7 +35,7 @@ public class CustomerMessageService {
         return null;
     }
     
-    public String sendMessage(String json,String accountId){
+    public boolean sendMessage(String json,String accountId){
     	// 调用接口获取access_token
         String accessTocken = weixinAccountService.getAccessToken(accountId);
         if(StringUtil.isNotEmpty(accessTocken)){
@@ -43,8 +43,10 @@ public class CustomerMessageService {
         	String url = send_message_url.replace("ACCESS_TOKEN",accessTocken);
         	JSONObject jsonObject = WeixinUtil.httpRequest(url, "POST", json);
         	System.out.println("...jsonObject..."+jsonObject.toString());
-        	return jsonObject.toString();
+        	if(jsonObject.getInt("errcode")==0){
+        		return true;
+        	}
         }
-        return null;
+        return false;
     }
 }
