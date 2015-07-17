@@ -48,10 +48,8 @@ public class ERPapiClient {
 	/**
 	 * 连接ERPapi服务RMI中心
 	 */
-	private static void connectERPapiServer(){
-		if(runFlag){
-			return;
-		}
+	public synchronized static boolean connectERPapiServer(){
+		runFlag=false;
 		try {
 			erPapi=(ERPapi)Naming.lookup("rmi://"+WXUtil.get("erpRMI.host")+":"+WXUtil.get("erpRMI.port")+"/erpAPI");
 			runFlag=true;
@@ -59,6 +57,7 @@ public class ERPapiClient {
 		} catch (Exception e) {
 			logger.info("ERP RMI服务连接失败："+e.getMessage()+"----5秒后重连");
 		}	
+		return runFlag;
 	}
 
 }

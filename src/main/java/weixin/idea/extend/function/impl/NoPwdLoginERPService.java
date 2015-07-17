@@ -27,11 +27,21 @@ public class NoPwdLoginERPService  implements KeyServiceI {
 		String returnMessage = null;
 		
 		String openId=textMessage.getToUserName();
+		
+		returnMessage="系统异常,请稍后再试，或联系： 朗捷通-信息中心---6046";
+		
 		try {
 			returnMessage=ERPapiClient.getApi().getNoPWDuriToLogin(openId);
-		} catch (Exception e) {
+		}catch(java.rmi.ConnectException e){
+			if(ERPapiClient.connectERPapiServer()){//重连RMI服务
+				try {
+					returnMessage=ERPapiClient.getApi().getNoPWDuriToLogin(openId);
+				} catch (Exception e1) {
+					e.printStackTrace();
+				}
+			}
+		}  catch (Exception e) {
 			e.printStackTrace();
-			returnMessage="系统异常，请联系： 朗捷通-信息中心---6046";
 		}
 		
 		textMessage.setContent(returnMessage);

@@ -35,11 +35,19 @@ public class BindERPService  implements KeyServiceI {
 			String userName=keys[1];
 			String authCode=keys[2];
 			
+			returnMessage="系统异常,请稍后再试，或联系： 朗捷通-信息中心---6046";
 			try {
 				returnMessage=ERPapiClient.getApi().updateUserWXopenId(userName, openId, authCode);
+			}catch(java.rmi.ConnectException e){
+				if(ERPapiClient.connectERPapiServer()){//重连RMI服务
+					try {
+						returnMessage=ERPapiClient.getApi().updateUserWXopenId(userName, openId, authCode);
+					} catch (Exception e1) {
+						e.printStackTrace();
+					}
+				}
 			} catch (Exception e) {
 				e.printStackTrace();
-				returnMessage="系统异常，请联系： 朗捷通-信息中心---6046";
 			}
 		}
 		
